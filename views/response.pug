@@ -3,6 +3,23 @@ extends bootstrap-base
 block franken-body
     h1 Adiona
     h2 Care, Gachibowli
+      style.
+                 #map {
+                        width:50%;
+                        height:400px;
+                        background-color: grey;
+                        align:"right";
+                    }
+    #map
+    script.
+            function initMap(){
+                                var x={lat:17.4278448,lng:78.3559012};
+                                var map=new google.maps.Map(
+                                document.getElementById('map'),{zoom:10,center:x});
+                                var marker=new google.maps.Marker({position:x,map:map});
+                              }
+    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCnUsgeDbQsJY4oa9y5k-rH4xD_oziOLTU&callback=initMap')
+
 
     h3 Emergencies
     
