@@ -1,31 +1,50 @@
-extends bootstrap-base	
-
-block franken-head
-	link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS", crossorigin="anonymous")
-	script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js", integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k", crossorigin="anonymous")
-	script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js", integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP", crossorigin="anonymous")
-	script.
-		('.toast').toast('show')
-
-block franken-body
-	h1 ADIONA LOGIN
-	.toast(role='alert', aria-live='assertive', aria-atomic='true')
-		.toast-header
-			img.rounded.mr-2(src='...', alt='...')
-			strong.mr-auto Bootstrap
-			small 11 mins ago
-			button.ml-2.mb-1.close(type='button', data-dismiss='toast', aria-label='Close')
-				span(aria-hidden='true') ×
-		.toast-body Hello, world! This is a toast message.
-
-	form(action='/l' method="get")
-		.form-group-align-self-center
-			label USERNAME
-				input.form-control(name='name', type='text', maxlength='50',id='2329',element='473')
-			br
-			.form-group
-				label PASSWORD
-				input.form-control(password='password',type='text',maxlength='10')
-			br
-			.form-group
-				button.btn.btn-primary(type="submit") LOGIN
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='Mark Otto, Jacob Thornton, and Bootstrap contributors')
+		meta(name='generator', content='Jekyll v3.8.5')
+		title Signin Template · Bootstrap
+		// Bootstrap core CSS
+		link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS", crossorigin="anonymous")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js", integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k", crossorigin="anonymous")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js", integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP", crossorigin="anonymous")
+		style.
+			.bd-placeholder-img {
+			font-size: 1.125rem;
+			text-anchor: middle;
+			}
+			@media (min-width: 768px) {
+			.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+			}
+			}
+		// Custom styles for this template
+		link(href='signin.css', rel='stylesheet')
+	body.text-center
+		br
+		br
+		center
+			h1 ADIONA
+		
+		br
+		br
+		.container
+			.row
+				.col
+					form.form-signin(action="/l" method="GET")
+						h2.h3.mb-3.font-weight-normal Please sign in
+						label.sr-only(for='inputEmail') Email address
+						input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
+						br
+						label.sr-only(for='inputPassword') Password
+						input#inputPassword.form-control(type='password', placeholder='Password', required='')
+						br
+						.checkbox.mb-3
+							label
+								input(type='checkbox', value='remember-me')
+								|  Remember me
+						button.btn.btn-lg.btn-primary(type='submit') Sign in
+						p.mt-5.mb-3.text-muted © 2017-2018

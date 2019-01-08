@@ -1,29 +1,63 @@
 extends bootstrap-base
 
-block franken-body
-    h1 Adiona
-    h2 Care, Gachibowli
-      style.
-                 #map {
-                        width:50%;
-                        height:400px;
-                        background-color: grey;
-                        align:"right";
-                    }
-    #map
+block franken-head
+    style.
+        body {
+            background-color: whitesmoke;
+            text-transform: uppercase;
+        }
+        .unshow {
+            visibility: hidden;
+        }
+        .show {
+            visibility: visibile;
+        }
     script.
-            function initMap(){
-                                var x={lat:17.4278448,lng:78.3559012};
-                                var map=new google.maps.Map(
-                                document.getElementById('map'),{zoom:10,center:x});
-                                var marker=new google.maps.Marker({position:x,map:map});
-                              }
-    script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCnUsgeDbQsJY4oa9y5k-rH4xD_oziOLTU&callback=initMap')
+        window.onload=function() {
+            setTimeout(showLatestEmergency, 1000);
+        };
+        function showLatestEmergency() {
+            document.getElementById("map").className="show";
+            document.getElementById("caption").className="show";
+        }
+
+block franken-body
+    .container.text-center
+        .row
+            .col
+                br
+                h1 Adiona
+                br
+                h2 Kamineni Hospital, Vijayawada
+                br
+                style.
+                        #map {
+                            width:100%;
+                            height:400px;
+                            background-color: grey;
+                            align:"right";
+                            border: 1px solid red;
+                        }
+                        #map
+                script.
+                    function initMap() {
+                        var x={lat:16.4419,lng:80.6225};
+                        var map=new google.maps.Map(
+                        document.getElementById('map'),{zoom:10,center:x});
+                        var marker=new google.maps.Marker({position:x,map:map});
+                    }
+                script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCnUsgeDbQsJY4oa9y5k-rH4xD_oziOLTU&callback=initMap')
 
 
-    h3 Emergencies
-    
-    for emergency in emergencies
-        h4=emergency.vehicleNumber
-        p=emergency.location.lat
-        p=emergency.location.lng
+                br
+                h3 Emergencies
+
+                center
+                    #map.unshow
+                
+                br
+                #caption.unshow
+                    h4 AP29BX1929
+                    p 16.4419
+                    p 80.6225
+                br
